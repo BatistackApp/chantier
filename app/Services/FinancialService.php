@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\Enums\CostType;
 use App\Models\Project;
-use DB;
 use Illuminate\Support\Collection;
 
 /**
@@ -36,10 +35,12 @@ class FinancialService
     {
         // 1. Coûts directs (Main d'œuvre chantier, Matériaux, Location, Sous-traitance)
         $directCosts = $project->costs()
-            ->select('cost_type', DB::raw('SUM(amount) as total'))
+            ->selectRaw('cost_type, SUM(amount) as total')
             ->groupBy('cost_type')
             ->get()
-            ->pluck('total', 'cost_type');
+            ->mapWithKeys(fn ($row) => [
+                $row->getRawOriginal('cost_type') => (float) $row->total,
+            ]);
 
         // 2. Coûts de fabrication (Atelier)
         $manufacturingTotal = (int) $project->fabrications()
