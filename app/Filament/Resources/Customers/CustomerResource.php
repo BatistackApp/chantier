@@ -15,15 +15,19 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class CustomerResource extends Resource
 {
     protected static ?string $model = Customer::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::Users;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::UserGroup;
     protected static ?string $navigationLabel = 'Clients';
     protected static ?string $modelLabel = 'Client';
-    protected static ?int $navigationSort = 1;
+    protected static ?string $pluralModelLabel = 'Clients';
+    protected static ?int $navigationSort = 2;
+    protected static string | UnitEnum | null $navigationGroup = 'Gestion Commerciale';
+
 
 
     public static function form(Schema $schema): Schema
@@ -56,5 +60,10 @@ class CustomerResource extends Resource
             'view' => ViewCustomer::route('/{record}'),
             'edit' => EditCustomer::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
     }
 }

@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('reference')->unique();
             $table->string('address');
-            $table->string('geo_lat');
-            $table->string('geo_long');
+            $table->string('geo_lat')->nullable();
+            $table->string('geo_long')->nullable();
             $table->string('status')->default(ProjectStatus::DRAFT->value);
             $table->decimal('quoted_amount', 14, 2)->default(0);
             $table->decimal('estimated_cost', 14, 2)->default(0);
