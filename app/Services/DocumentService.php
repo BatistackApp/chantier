@@ -21,6 +21,8 @@ class DocumentService
         // On utilise Browsershot pour transformer le HTML en PDF
         // On inclut Tailwind via CDN dans la vue Blade ou un script de compilation
         $pdfContent = Browsershot::html($html)
+            ->setNodeBinary(config('browsershot.node_binary_path'))
+            ->setNpmBinary(config('browsershot.npm_binary_path'))
             ->format('A4')
             ->margins(10, 10, 10, 10)
             ->showBackground()
