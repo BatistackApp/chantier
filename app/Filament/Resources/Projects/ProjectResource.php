@@ -2,10 +2,12 @@
 
 namespace App\Filament\Resources\Projects;
 
+use App\Enums\ProjectStatus;
 use App\Filament\Resources\Projects\Pages\CreateProject;
 use App\Filament\Resources\Projects\Pages\EditProject;
 use App\Filament\Resources\Projects\Pages\ListProjects;
 use App\Filament\Resources\Projects\Pages\ViewProject;
+use App\Filament\Resources\Projects\RelationManagers\FabricationsRelationManager;
 use App\Filament\Resources\Projects\Schemas\ProjectForm;
 use App\Filament\Resources\Projects\Schemas\ProjectInfolist;
 use App\Filament\Resources\Projects\Tables\ProjectsTable;
@@ -15,6 +17,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Contracts\Support\Htmlable;
 
 class ProjectResource extends Resource
 {
@@ -43,7 +46,7 @@ class ProjectResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            FabricationsRelationManager::class,
         ];
     }
 
@@ -55,5 +58,20 @@ class ProjectResource extends Resource
             'view' => ViewProject::route('/{record}'),
             'edit' => EditProject::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::where('status', ProjectStatus::STARTED)->count();
+    }
+
+    public static function getNavigationBadgeColor(): string|array|null
+    {
+        return 'success';
+    }
+
+    public static function getNavigationBadgeTooltip(): string|Htmlable|null
+    {
+        return 'Chantier Démarrée';
     }
 }

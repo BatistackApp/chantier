@@ -10,6 +10,9 @@ use Filament\Resources\Pages\EditRecord;
 class EditProject extends EditRecord
 {
     protected static string $resource = ProjectResource::class;
+    protected static ?string $breadcrumb = 'Modifier le chantier';
+    protected static ?string $title = 'Modifier le chantier';
+
 
     protected function getHeaderActions(): array
     {

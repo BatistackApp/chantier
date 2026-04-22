@@ -2,6 +2,9 @@
 
 namespace App\Filament\Resources\Projects\Schemas;
 
+use App\Enums\ProjectStatus;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -70,9 +73,59 @@ class ProjectForm
                                     ->rows(3)
                                     ->columnSpanFull()
                                     ->required(),
-
-
                             ]),
+                    ]),
+
+                Section::make('Planification et Budget')
+                    ->columnSpanFull()
+                    ->columns(3)
+                    ->schema([
+                        Select::make('status')
+                            ->label('Statut')
+                            ->options(ProjectStatus::class)
+                            ->default(ProjectStatus::DRAFT)
+                            ->required()
+                            ->native(false),
+
+                        DatePicker::make('planned_start_date')
+                            ->date('d/m/Y')
+                            ->label('Date prévisionnelle démarrage'),
+
+                        DatePicker::make('planned_end_date')
+                            ->date('d/m/Y')
+                            ->label('Date prévisionnelle de fin'),
+
+                        TextInput::make('quoted_amount')
+                            ->label('Montant Vendu (Devis/Commande) HT')
+                            ->numeric()
+                            ->prefix('€')
+                            ->helperText('Montant contractuel du chantier')
+                            ->required(),
+
+                        TextInput::make('estimated_cost')
+                            ->label('Coût Prévisionel (Etude) HT')
+                            ->numeric()
+                            ->prefix('€')
+                            ->helperText('Budget estimé lors de l\'étude'),
+                    ]),
+
+                Section::make('Dates Réelles')
+                    ->columnSpanFull()
+                    ->columns(2)
+                    ->collapsible()
+                    ->collapsed()
+                    ->schema([
+                        DateTimePicker::make('started_at')
+                            ->label('Démarrage effectif')
+                            ->native(false)
+                            ->helperText('Renseigné automatiquement via PV de démarrage')
+                            ->disabled(),
+
+                        DateTimePicker::make('ended_at')
+                            ->label('Fin effective')
+                            ->native(false)
+                            ->helperText('Renseigné automatiquement via PV de fin')
+                            ->disabled(),
                     ]),
             ]);
     }
