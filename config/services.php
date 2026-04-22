@@ -38,4 +38,9 @@ return [
     'google' => [
         'api_key' => env('GOOGLE_API_KEY'),
     ],
+
+    'siren' => [
+        'api_key' => env('SIREN_API_KEY'),
+        'base_url' => env('SIREN_BASE_URL'),
+    ]
 ];
