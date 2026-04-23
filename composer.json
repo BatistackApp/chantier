@@ -11,6 +11,7 @@
     "require": {
         "php": "^8.3",
         "ariefng/filament-calculator": "^1.2",
+        "awcodes/palette": "^3.0",
         "devletes/filament-progress-bar": "^1.0",
         "filament/filament": "^5.5",
         "guava/calendar": "^3.1",
