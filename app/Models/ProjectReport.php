@@ -39,7 +39,7 @@ class ProjectReport extends Model
             'is_completed' => 'boolean',
             'cleaning_done' => 'boolean',
             'reserves' => 'array',
-            'signed_at' => 'timestamp',
+            'signed_at' => 'datetime',
             'type' => ProjectReportType::class,
         ];
     }

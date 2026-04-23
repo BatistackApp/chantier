@@ -4,12 +4,18 @@ namespace App\Filament\Resources\ProjectReports\Tables;
 
 use App\Enums\ProjectReportType;
 use App\Models\ProjectReport;
+use App\Services\DocumentService;
+use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\CreateAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
+use Filament\Notifications\Notification;
+use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
@@ -19,6 +25,14 @@ class ProjectReportsTable
     public static function configure(Table $table): Table
     {
         return $table
+            ->emptyStateHeading('Aucun Procès Verbal dans la base de donnée')
+            ->emptyStateIcon(Heroicon::DocumentCheck)
+            ->emptyStateActions([
+                CreateAction::make()
+                    ->icon(Heroicon::PlusCircle)
+                    ->label('Nouveau PV'),
+            ])
+            ->defaultSort('signed_at', 'desc')
             ->columns([
                 TextColumn::make('project.reference')
                     ->label('Projet')
@@ -94,10 +108,34 @@ class ProjectReportsTable
                     ->placeholder('Tous')
                     ->trueLabel('Achevés')
                     ->falseLabel('En cours'),
+
+                Filter::make('with_reserves')
+                    ->label('Avec réserves')
+                    ->query(fn ($query) => $query->whereNotNull('reserves')),
             ])
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
+
+                Action::make('generate_pdf')
+                    ->label('Générer PDF')
+                    ->icon('heroicon-o-document-arrow-down')
+                    ->color('success')
+                    ->action(function (ProjectReport $record) {
+                        $service = app(DocumentService::class);
+
+                        $path = match ($record->type) {
+                            ProjectReportType::Start => $service->generateStartReport($record->project),
+                            ProjectReportType::End => $service->generateEndReport($record->project),
+                        };
+
+                        Notification::make()
+                            ->title('PV généré avec succès')
+                            ->success()
+                            ->send();
+
+                        return response()->download($path);
+                    }),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

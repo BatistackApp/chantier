@@ -101,7 +101,7 @@ class ProjectReportForm
                             ->collapsible(),
                     ])
                     ->columns(2)
-                    ->visible(fn (Get $get) => isset($get('type')->value) && $get('type')->value === ProjectReportType::Start->value),
+                    ->visible(fn (Get $get) => isset($get('type')->value) && $get('type')->value === ProjectReportType::End->value),
 
                 Section::make('Signature')
                     ->columnSpanFull()

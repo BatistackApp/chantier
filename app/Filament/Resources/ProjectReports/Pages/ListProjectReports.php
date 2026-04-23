@@ -5,6 +5,7 @@ namespace App\Filament\Resources\ProjectReports\Pages;
 use App\Filament\Resources\ProjectReports\ProjectReportResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
+use Filament\Support\Icons\Heroicon;
 
 class ListProjectReports extends ListRecords
 {
@@ -13,7 +14,9 @@ class ListProjectReports extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make(),
+            CreateAction::make()
+                ->icon(Heroicon::PlusCircle)
+                ->label('Nouveau PV'),
         ];
     }
 }
