@@ -18,6 +18,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Contracts\Support\Htmlable;
+use UnitEnum;
 
 class ProjectResource extends Resource
 {
@@ -26,7 +27,8 @@ class ProjectResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::BuildingOffice2;
     protected static ?string $navigationLabel = 'Chantiers';
     protected static ?string $modelLabel = 'Chantier';
-    protected static ?int $navigationSort = 1;
+    protected static string | UnitEnum | null $navigationGroup = 'Gestion Commerciale';
+    protected static ?int $navigationSort = 2;
 
     public static function form(Schema $schema): Schema
     {
