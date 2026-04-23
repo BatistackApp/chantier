@@ -10,8 +10,8 @@ use ToneGabes\Filament\Icons\Enums\Phosphor;
 class ListProjects extends ListRecords
 {
     protected static string $resource = ProjectResource::class;
-    protected static ?string $breadcrumb = 'Chantiers';
-    protected static ?string $title = 'Chantiers';
+    protected static ?string $breadcrumb = 'Liste des Chantiers';
+    protected static ?string $title = 'Liste des Chantiers';
 
     protected function getHeaderActions(): array
     {
