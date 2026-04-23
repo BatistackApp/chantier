@@ -91,7 +91,15 @@
                 <div class="w-full">
                     <p class="font-bold uppercase text-xs text-amber-800">Constat avec réserves</p>
                     <div class="min-h-[60px] border border-slate-200 mt-1 p-2 text-xs italic bg-white">
-                        {{ $report->reserves ?? 'Aucune réserve signalée.' }}
+                        @if($hasReserves)
+                            <ul>
+                            @foreach($report->reserves as $reserve)
+                                <li>{{ $reserve['description'] }}</li>
+                            @endforeach
+                            </ul>
+                        @else
+                            Aucune réserve signalée.
+                        @endif
                     </div>
                 </div>
             </div>

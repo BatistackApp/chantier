@@ -101,7 +101,15 @@
             </div>
             <div class="bg-slate-50 p-3 border border-slate-200 italic text-[11px]">
                 <p class="font-bold not-italic mb-1 underline">Réserves éventuelles :</p>
-                {{ $report->reserves ?? 'Aucune réserve majeure au démarrage.' }}
+                @if($report->reserves)
+                    <ul>
+                        @foreach($report->reserves as $reserve)
+                            <li>{{ $reserve['description'] }}</li>
+                        @endforeach
+                    </ul>
+                @else
+                    Aucune Réserves éventuelles
+                @endif
             </div>
         </div>
     </div>
