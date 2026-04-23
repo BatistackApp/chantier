@@ -6,7 +6,9 @@ use App\Models\Customer;
 use App\Services\SirenService;
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Schemas\Components\Callout;
 use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Illuminate\Support\HtmlString;
@@ -17,6 +19,15 @@ class CustomerInfolist
     {
         return $schema
             ->components([
+                Callout::make('Siren/Siret Invalide')
+                    ->columnSpanFull()
+                    ->danger()
+                    ->description("Le Siret/Siren affilié à ce client n'apparait pas dans la base de donnée SIRENE de l'INPI, veuiller vérifier les renseignements de ce client")
+                    ->visible(function (Get $get) {
+                        $siretService = app(SirenService::class);
+
+                        return ! $siretService->exists($get('siret'));
+                    }),
                 Section::make('Informations client')
                     ->columnSpanFull()
                     ->columns(4)
