@@ -6,6 +6,7 @@ use App\Enums\ProjectStatus;
 use App\Filament\Resources\Fabrications\Pages\CreateFabrication;
 use App\Filament\Resources\Fabrications\Pages\EditFabrication;
 use App\Filament\Resources\Fabrications\Pages\ListFabrications;
+use App\Filament\Resources\Fabrications\Pages\ViewFabrication;
 use App\Filament\Resources\Fabrications\Schemas\FabricationForm;
 use App\Filament\Resources\Fabrications\Tables\FabricationsTable;
 use App\Models\Fabrication;
@@ -54,6 +55,7 @@ class FabricationResource extends Resource
             'index' => ListFabrications::route('/'),
             'create' => CreateFabrication::route('/create'),
             'edit' => EditFabrication::route('/{record}/edit'),
+            'view' => ViewFabrication::route('/{record}'),
         ];
     }
 

@@ -63,7 +63,7 @@ class FinancialService
             }
 
             return [$type->name => [
-                'label' => $type->value,
+                'label' => $type->getLabel(),
                 'total' => (int) $total,
             ]];
         })->put('PRORATA', [

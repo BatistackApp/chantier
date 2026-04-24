@@ -16,16 +16,16 @@
     <div class="grid grid-cols-4 gap-4 mb-6">
         <div class="bg-white p-4 border border-slate-200">
             <p class="text-[10px] font-bold text-slate-400 uppercase mb-1">Vendu H.T.</p>
-            <p class="text-xl font-black">{{ number_format($metrics['quoted_amount'] / 100, 0, ',', ' ') }} €</p>
+            <p class="text-xl font-black">{{ \Illuminate\Support\Number::currency($metrics['quoted_amount'], 'EUR') }}</p>
         </div>
         <div class="bg-white p-4 border border-slate-200">
             <p class="text-[10px] font-bold text-slate-400 uppercase mb-1">Déboursé Réel</p>
-            <p class="text-xl font-black text-indigo-600">{{ number_format($metrics['actual_debourse'] / 100, 0, ',', ' ') }} €</p>
+            <p class="text-xl font-black text-indigo-600">{{ \Illuminate\Support\Number::currency($metrics['actual_debourse'], 'EUR') }}</p>
         </div>
         <div class="bg-white p-4 border border-slate-200">
             <p class="text-[10px] font-bold text-slate-400 uppercase mb-1">Marge Brute</p>
             <p class="text-xl font-black {{ $metrics['margin_cents'] > 0 ? 'text-green-600' : 'text-red-600' }}">
-                {{ number_format($metrics['margin_cents'] / 100, 0, ',', ' ') }} €
+                {{ \Illuminate\Support\Number::currency($metrics['margin_cents'], 'EUR') }}
             </p>
         </div>
         <div class="p-4 border-2 {{ $metrics['margin_percentage'] > 20 ? 'bg-green-600 border-green-700 text-white' : 'bg-white border-indigo-600' }}">
@@ -42,12 +42,12 @@
                 @foreach($breakdown as $type => $data)
                     <tr class="border-b border-slate-50">
                         <td class="py-2 text-slate-500 italic">{{ $data['label'] }}</td>
-                        <td class="py-2 text-right font-mono font-bold">{{ number_format($data['total'] / 100, 2, ',', ' ') }} €</td>
+                        <td class="py-2 text-right font-mono font-bold">{{ \Illuminate\Support\Number::currency($data['total'], 'EUR') }}</td>
                     </tr>
                 @endforeach
                 <tr class="bg-indigo-50 font-black">
                     <td class="py-3 px-2">COÛT DE REVIENT TOTAL</td>
-                    <td class="py-3 px-2 text-right font-mono uppercase">{{ number_format($metrics['actual_debourse'] / 100, 2, ',', ' ') }} €</td>
+                    <td class="py-3 px-2 text-right font-mono uppercase">{{ \Illuminate\Support\Number::currency($metrics['actual_debourse'], 'EUR') }}</td>
                 </tr>
             </table>
         </section>
@@ -59,12 +59,12 @@
                 <div class="flex justify-between items-end">
                     <div>
                         <p class="text-[10px] text-slate-400 uppercase italic">Coût prévisionnel Étude</p>
-                        <p class="text-lg font-bold">{{ number_format($project->estimated_cost_cents / 100, 0, ',', ' ') }} €</p>
+                        <p class="text-lg font-bold">{{ \Illuminate\Support\Number::currency($project->estimated_cost, 'EUR') }}</p>
                     </div>
                     <div class="text-right">
                         <p class="text-[10px] text-slate-400 uppercase italic">Écart de réalisation</p>
                         <p class="text-lg font-black {{ $metrics['variance_from_estimate'] >= 0 ? 'text-green-600' : 'text-red-600' }}">
-                            {{ $metrics['variance_from_estimate'] >= 0 ? '+' : '' }} {{ number_format($metrics['variance_from_estimate'] / 100, 2, ',', ' ') }} €
+                            {{ $metrics['variance_from_estimate'] >= 0 ? '+' : '' }} {{ number_format($metrics['variance_from_estimate'], 2, ',', ' ') }} €
                         </p>
                     </div>
                 </div>
