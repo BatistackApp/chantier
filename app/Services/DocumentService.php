@@ -49,7 +49,6 @@ class DocumentService
         $data = [
             'project' => $project,
             'fabrications' => $project->fabrications()->get(),
-            'quincaillerie' => $project->quincaillerie()->get(),
             'title' => "FICHE DE PRÉPARATION FABRICATION - {$project->reference}",
         ];
 

@@ -77,17 +77,19 @@
             </tr>
             </thead>
             <tbody>
-            @forelse($quincaillerie as $item)
-                <tr class="border-b border-slate-300">
-                    <td class="px-3 py-2 border-r border-black font-semibold">{{ $item->type }}</td>
-                    <td class="px-3 py-2 border-r border-black">{{ $item->label }}</td>
-                    <td class="px-3 py-2 text-center font-bold text-lg">{{ $item->quantity }}</td>
-                </tr>
-            @empty
+            @foreach($fabrications as $fabrication)
+                @forelse($fabrication->items as $item)
+                    <tr class="border-b border-slate-300">
+                        <td class="px-3 py-2 border-r border-black font-semibold">{{ $item->type->getLabel() }}</td>
+                        <td class="px-3 py-2 border-r border-black">{{ $item->label }}</td>
+                        <td class="px-3 py-2 text-center font-bold text-lg">{{ $item->quantity }}</td>
+                    </tr>
+                @empty
                 <tr>
                     <td colspan="3" class="px-3 py-8 text-center text-slate-400 italic">Aucune quincaillerie spécifiée.</td>
                 </tr>
-            @endforelse
+                @endforelse
+            @endforeach
 
             @for ($i = 0; $i < 2; $i++)
                 <tr class="border-b border-slate-300 h-10">

@@ -249,7 +249,7 @@ class FabricationInfolist
                         TextEntry::make('items_total')
                             ->label('Total Quincaillerie')
                             ->state(function ($record): float {
-                                return $record->items()->sum('unit_cost');
+                                return $record->items()->sum('unit_cost') * $record->items()->sum('quantity');
                             })
                             ->money('EUR')
                             ->weight('bold')

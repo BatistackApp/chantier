@@ -2,7 +2,9 @@
 
 namespace App\Filament\Resources\Fabrications\Schemas;
 
+use App\Enums\FabricationItemType;
 use App\Enums\FabricationType;
+use App\Models\Fabrication;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -92,7 +94,59 @@ class FabricationForm
                             ->seconds(false)
                             ->native(false)
                             ->helperText('Temps effectif passé en atelier'),
-                    ])->columns(4),
+                    ])
+                    ->columns(4),
+
+                Section::make()
+                    ->columnSpanFull()
+                    ->schema([
+                        Repeater::make('items')
+                            ->label('Matériaux / Marchandise')
+                            ->relationship('items')
+                            ->columns(5)
+                            ->schema([
+                                Select::make('type')
+                                    ->label('Type')
+                                    ->options(FabricationItemType::class)
+                                    ->required()
+                                    ->native(false),
+
+                                TextInput::make('label')
+                                ->label('Désignation')
+                                ->required()
+                                ->maxLength(255),
+
+                                TextInput::make('quantity')
+                                    ->label('Quantité')
+                                    ->numeric()
+                                    ->required()
+                                    ->default(1)
+                                    ->minValue(0.01)
+                                    ->step(0.01)
+                                    ->live(onBlur: true),
+
+                                TextInput::make('unit_cost')
+                                    ->label('Coût unitaire (€)')
+                                    ->numeric()
+                                    ->prefix('€')
+                                    ->required()
+                                    ->default(0)
+                                    ->minValue(0)
+                                    ->step(0.01)
+                                    ->live(onBlur: true),
+
+                                TextEntry::make('total_cost')
+                                    ->label('Coût total')
+                                    ->state(function (Get $get): string {
+                                        $quantity = floatval($get('quantity') ?? 0);
+                                        $unitCost = floatval($get('unit_cost') ?? 0);
+                                        $total = $quantity * $unitCost;
+
+                                        return number_format($total, 2, ',', ' ').' €';
+                                    })
+                                    ->extraAttributes(['class' => 'text-lg font-bold text-success-600']),
+                            ]),
+                    ]),
             ]);
     }
 }

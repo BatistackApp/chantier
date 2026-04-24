@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\FabricationItemType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -11,18 +12,12 @@ class FabricationItem extends Model
     use HasFactory;
 
     protected $fillable = [
-        'project_id',
         'fabrication_id',
         'type',
         'label',
         'quantity',
         'unit_cost',
     ];
-
-    public function project(): BelongsTo
-    {
-        return $this->belongsTo(Project::class);
-    }
 
     public function fabrication(): BelongsTo
     {
@@ -34,6 +29,7 @@ class FabricationItem extends Model
         return [
             'quantity' => 'decimal:2',
             'unit_cost' => 'decimal:2',
+            'type' => FabricationItemType::class,
         ];
     }
 }

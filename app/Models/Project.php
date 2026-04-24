@@ -53,11 +53,6 @@ class Project extends Model
         return $this->hasMany(Fabrication::class);
     }
 
-    public function quincaillerie(): HasMany
-    {
-        return $this->hasMany(FabricationItem::class);
-    }
-
     public function reports(): HasMany
     {
         return $this->hasMany(ProjectReport::class);

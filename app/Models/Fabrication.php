@@ -44,6 +44,7 @@ class Fabrication extends Model
             'type' => FabricationType::class,
             'quantity' => 'decimal:2',
             'unit_cost' => 'decimal:2',
+            'time_realized' => 'datetime',
         ];
     }
 }

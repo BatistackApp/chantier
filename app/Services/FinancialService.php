@@ -48,7 +48,9 @@ class FinancialService
             ->sum(fn ($fab) => $fab->quantity * $fab->unit_cost);
 
         // 3. Coûts de quincaillerie
-        $quincaillerieTotal = (float) $project->quincaillerie()->sum('unit_cost');
+        $quincaillerieTotal = (float) $project->fabrications()
+            ->get()
+            ->sum(fn ($fab) => $fab->items()->sum('unit_cost') * $fab->items()->sum('quantity'));
 
         // 4. Calcul du compte prorata (3%)
         $prorataAmount = $this->calculateProrataAmount($project);

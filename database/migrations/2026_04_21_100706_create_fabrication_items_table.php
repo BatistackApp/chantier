@@ -11,7 +11,6 @@ return new class extends Migration {
     {
         Schema::create('fabrication_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Project::class)->constrained();
             $table->foreignIdFor(Fabrication::class)->nullable()->constrained();
             $table->string('type'); // Visserie, Consommable, etc.
             $table->string('label');
