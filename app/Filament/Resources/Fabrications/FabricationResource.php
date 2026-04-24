@@ -8,6 +8,7 @@ use App\Filament\Resources\Fabrications\Pages\EditFabrication;
 use App\Filament\Resources\Fabrications\Pages\ListFabrications;
 use App\Filament\Resources\Fabrications\Pages\ViewFabrication;
 use App\Filament\Resources\Fabrications\Schemas\FabricationForm;
+use App\Filament\Resources\Fabrications\Schemas\FabricationInfolist;
 use App\Filament\Resources\Fabrications\Tables\FabricationsTable;
 use App\Models\Fabrication;
 use BackedEnum;
@@ -40,6 +41,11 @@ class FabricationResource extends Resource
     public static function table(Table $table): Table
     {
         return FabricationsTable::configure($table);
+    }
+
+    public static function infolist(Schema $schema): Schema
+    {
+        return FabricationInfolist::configure($schema);
     }
 
     public static function getRelations(): array

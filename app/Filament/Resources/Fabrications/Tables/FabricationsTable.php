@@ -8,6 +8,7 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\CreateAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
@@ -31,8 +32,7 @@ class FabricationsTable
                     ->label('Chantier')
                     ->searchable()
                     ->sortable()
-                    ->weight('bold')
-                    ->url(fn (Fabrication $record): string => route('filament.admin.resources.projects.view', ['record' => $record->project_id])),
+                    ->weight('bold'),
 
                 TextColumn::make('type')
                     ->label('Type')
@@ -90,6 +90,7 @@ class FabricationsTable
                     ->label('Chantier'),
             ])
             ->recordActions([
+                ViewAction::make(),
                 EditAction::make(),
             ])
             ->toolbarActions([
