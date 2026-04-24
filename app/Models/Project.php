@@ -79,7 +79,7 @@ class Project extends Model
     {
         $directCosts = $this->costs()->sum('amount');
         $fabCosts = $this->fabrications()->get()->sum(fn ($f) => $f->quantity * $f->unit_cost_cents);
-        $itemCosts = $this->quincaillerie()->sum('unit_cost');
+        $itemCosts = $this->fabrications()->get()->sum(fn ($f) => $f->items()->sum('unit_cost') * $f->items()->sum('quantity'));
 
         return $directCosts + $fabCosts + $itemCosts;
     }
