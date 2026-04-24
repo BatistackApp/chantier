@@ -39,7 +39,7 @@
                     <td class="px-3 py-2 border-r border-black text-center">{{ $item->dimensions }}</td>
                     <td class="px-3 py-2 border-r border-black text-center font-bold">{{ $item->quantity }}</td>
                     <td class="px-3 py-2 border-r border-black text-center">
-                            <span class="inline-block px-2 py-0.5 border border-slate-400 bg-slate-50 rounded text-xs">
+                            <span class="inline-block px-2 py-0.5 border border-slate-400 rounded text-xs" style='background-color: "{{ \App\Enums\RalColor::from(7016)->hex() }}" !important;'>
                                 RAL {{ $item->color_code }}
                             </span>
                     </td>

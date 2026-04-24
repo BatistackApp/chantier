@@ -1,0 +1,223 @@
+@theme {
+
+    /* ── Jaunes RAL 1xxx ─────────────────────────────────────── */
+    --color-ral-1000: #CDba88; /* Beige vert          */
+    --color-ral-1001: #D2AA6D; /* Beige               */
+    --color-ral-1002: #D0A83B; /* Jaune sable         */
+    --color-ral-1003: #F7B500; /* Jaune signal        */
+    --color-ral-1004: #E4A010; /* Jaune or            */
+    --color-ral-1005: #C89F06; /* Jaune miel          */
+    --color-ral-1006: #E0930A; /* Jaune maïs          */
+    --color-ral-1007: #E8A000; /* Jaune narcisse       */
+    --color-ral-1011: #AF8A3D; /* Brun beige          */
+    --color-ral-1012: #D7A520; /* Jaune citron        */
+    --color-ral-1013: #EEE8D2; /* Blanc perlé         */
+    --color-ral-1014: #E1CE9A; /* Ivoire              */
+    --color-ral-1015: #E6D2A8; /* Ivoire clair ★      */
+    --color-ral-1016: #F1DD38; /* Jaune soufre        */
+    --color-ral-1017: #F6A833; /* Jaune safran        */
+    --color-ral-1018: #FACA30; /* Jaune zinc          */
+    --color-ral-1019: #A08060; /* Gris beige          */
+    --color-ral-1020: #9A7E45; /* Jaune olive         */
+    --color-ral-1021: #F6A805; /* Jaune colza         */
+    --color-ral-1023: #F7B500; /* Jaune signalisation */
+    --color-ral-1024: #B89050; /* Jaune ocre          */
+    --color-ral-1026: #FFFF00; /* Jaune brillant      */
+    --color-ral-1027: #9D8020; /* Jaune curry         */
+    --color-ral-1028: #F77B00; /* Jaune melon         */
+    --color-ral-1032: #E5A906; /* Jaune genet         */
+    --color-ral-1033: #F49200; /* Jaune dahlia        */
+    --color-ral-1034: #EBA050; /* Jaune pastel        */
+    --color-ral-1037: #E58B00; /* Jaune soleil        */
+
+    /* ── Oranges RAL 2xxx ───────────────────────────────────── */
+    --color-ral-2000: #DA6E00; /* Orangé jaune        */
+    --color-ral-2001: #BA3A0A; /* Orangé rouge        */
+    --color-ral-2002: #C43208; /* Orangé sang         */
+    --color-ral-2003: #F97038; /* Orangé pastel       */
+    --color-ral-2004: #E85B10; /* Orangé pur          */
+    --color-ral-2008: #EF6C00; /* Orangé rouge clair  */
+    --color-ral-2009: #DE5200; /* Orangé signalisation*/
+    --color-ral-2010: #D05B25; /* Orangé pastel       */
+    --color-ral-2011: #EC7E28; /* Orangé profond      */
+    --color-ral-2012: #DD6B50; /* Saumon              */
+
+    /* ── Rouges RAL 3xxx ────────────────────────────────────── */
+    --color-ral-3000: #AA2812; /* Rouge feu           */
+    --color-ral-3001: #9E1E10; /* Rouge signal        */
+    --color-ral-3002: #9B1B10; /* Rouge carmin        */
+    --color-ral-3003: #861008; /* Rouge rubis         */
+    --color-ral-3004: #6D0E0A; /* Rouge pourpre       */
+    --color-ral-3005: #520E0A; /* Rouge vin           */
+    --color-ral-3007: #350C0B; /* Rouge noir          */
+    --color-ral-3009: #712518; /* Oxyde rouge         */
+    --color-ral-3011: #7E1C12; /* Rouge brun          */
+    --color-ral-3012: #CA9080; /* Rouge beige         */
+    --color-ral-3013: #983528; /* Rouge tomate        */
+    --color-ral-3014: #D36060; /* Vieux rose          */
+    --color-ral-3015: #E8A0A0; /* Rose clair          */
+    --color-ral-3016: #A83020; /* Rouge corail        */
+    --color-ral-3017: #CC3050; /* Rose                */
+    --color-ral-3018: #C83048; /* Rouge fraise        */
+    --color-ral-3020: #C21807; /* Rouge signalisation ★*/
+    --color-ral-3022: #D56048; /* Saumon rouge        */
+    --color-ral-3024: #F70000; /* Rouge brillant      */
+    --color-ral-3026: #FF2010; /* Rouge brillant clair*/
+    --color-ral-3027: #B01828; /* Rouge framboise     */
+    --color-ral-3028: #CB2821; /* Rouge pur           */
+    --color-ral-3031: #A63028; /* Rouge oriental      */
+
+    /* ── Violets RAL 4xxx ───────────────────────────────────── */
+    --color-ral-4001: #906888; /* Lilas rouge         */
+    --color-ral-4002: #882050; /* Rouge violacé       */
+    --color-ral-4003: #CF5888; /* Bruyère             */
+    --color-ral-4004: #681848; /* Bordeaux            */
+    --color-ral-4005: #7080A0; /* Lilas bleu          */
+    --color-ral-4006: #983068; /* Mauve signalisation */
+    --color-ral-4007: #400830; /* Violet pourpre      */
+    --color-ral-4008: #882078; /* Violet signal       */
+    --color-ral-4009: #A07888; /* Violet pastel       */
+    --color-ral-4010: #C03070; /* Télé-magenta        */
+
+    /* ── Bleus RAL 5xxx ─────────────────────────────────────── */
+    --color-ral-5000: #284870; /* Bleu violet         */
+    --color-ral-5001: #1E4060; /* Bleu vert           */
+    --color-ral-5002: #182878; /* Bleu outremer       */
+    --color-ral-5003: #1A2858; /* Bleu saphir         */
+    --color-ral-5004: #101830; /* Bleu noir           */
+    --color-ral-5005: #1A4880; /* Bleu signal ★       */
+    --color-ral-5007: #3A6898; /* Bleu brillant       */
+    --color-ral-5008: #284058; /* Bleu gris           */
+    --color-ral-5009: #2A5888; /* Bleu azur           */
+    --color-ral-5010: #0E4080; /* Bleu gentiane       */
+    --color-ral-5011: #102040; /* Bleu acier          */
+    --color-ral-5012: #3880C0; /* Bleu clair ★        */
+    --color-ral-5013: #182868; /* Bleu cobalt         */
+    --color-ral-5014: #607898; /* Bleu pigeon         */
+    --color-ral-5015: #1070A8; /* Bleu ciel ★         */
+    --color-ral-5017: #0A5888; /* Bleu signalisation  */
+    --color-ral-5018: #309898; /* Bleu turquoise      */
+    --color-ral-5019: #105880; /* Bleu capri          */
+    --color-ral-5020: #0E3840; /* Bleu océan          */
+    --color-ral-5021: #107880; /* Bleu eau ★          */
+    --color-ral-5022: #201868; /* Bleu nuit           */
+    --color-ral-5023: #406090; /* Bleu distant        */
+    --color-ral-5024: #6090A8; /* Bleu pastel         */
+
+    /* ── Verts RAL 6xxx ─────────────────────────────────────── */
+    --color-ral-6000: #307860; /* Vert patine         */
+    --color-ral-6001: #286828; /* Vert émeraude       */
+    --color-ral-6002: #206020; /* Vert feuillage      */
+    --color-ral-6003: #485830; /* Vert olive          */
+    --color-ral-6004: #0E4838; /* Bleu vert           */
+    --color-ral-6005: #0E3820; /* Vert mousse ★       */
+    --color-ral-6006: #303020; /* Gris olive          */
+    --color-ral-6007: #283018; /* Vert bouteille      */
+    --color-ral-6008: #302818; /* Vert brun           */
+    --color-ral-6009: #203018; /* Vert sapin ★        */
+    --color-ral-6010: #388030; /* Vert herbe          */
+    --color-ral-6011: #587850; /* Vert réséda         */
+    --color-ral-6012: #283828; /* Vert noir           */
+    --color-ral-6013: #786848; /* Vert roseau         */
+    --color-ral-6014: #484030; /* Vert jaune          */
+    --color-ral-6015: #383028; /* Vert noir olive     */
+    --color-ral-6016: #107050; /* Vert turquoise      */
+    --color-ral-6017: #408040; /* Vert mai ★          */
+    --color-ral-6018: #509030; /* Vert jaune clair    */
+    --color-ral-6019: #C8E0B0; /* Vert blanc          */
+    --color-ral-6020: #304830; /* Vert chrome         */
+    --color-ral-6021: #788868; /* Vert pâle           */
+    --color-ral-6022: #382818; /* Vert olive brun     */
+    --color-ral-6024: #308860; /* Vert signalisation  */
+    --color-ral-6025: #487840; /* Vert fougère        */
+    --color-ral-6026: #0A5840; /* Vert opale          */
+    --color-ral-6027: #88C8B0; /* Vert clair          */
+    --color-ral-6028: #285840; /* Vert pin            */
+    --color-ral-6029: #188030; /* Vert menthe         */
+    --color-ral-6032: #208050; /* Vert signal         */
+    --color-ral-6033: #409880; /* Vert menthe turquoise*/
+    --color-ral-6034: #80B0A0; /* Vert pastel         */
+    --color-ral-6035: #1A5820; /* Vert nacré          */
+    --color-ral-6036: #0C5838; /* Vert opale nacré    */
+    --color-ral-6037: #008040; /* Vert pur            */
+    --color-ral-6038: #00C840; /* Vert brillant       */
+
+    /* ── Gris RAL 7xxx ──────────────────────────────────────── */
+    --color-ral-7000: #788090; /* Gris petit-gris     */
+    --color-ral-7001: #8898A8; /* Gris argent ★       */
+    --color-ral-7002: #806858; /* Gris olive          */
+    --color-ral-7003: #786860; /* Gris mousse         */
+    --color-ral-7004: #989898; /* Gris signal         */
+    --color-ral-7005: #686060; /* Gris souris         */
+    --color-ral-7006: #706050; /* Gris beige          */
+    --color-ral-7008: #786840; /* Gris kaki           */
+    --color-ral-7009: #585848; /* Gris vert           */
+    --color-ral-7010: #505848; /* Gris tente          */
+    --color-ral-7011: #485860; /* Gris fer            */
+    --color-ral-7012: #486070; /* Gris basalte        */
+    --color-ral-7013: #504838; /* Gris brun           */
+    --color-ral-7015: #404858; /* Gris ardoise        */
+    --color-ral-7016: #383E48; /* Gris anthracite ★   */
+    --color-ral-7021: #202830; /* Gris noir           */
+    --color-ral-7022: #403830; /* Gris ombre          */
+    --color-ral-7023: #808078; /* Gris béton          */
+    --color-ral-7024: #484858; /* Gris graphite ★     */
+    --color-ral-7026: #303840; /* Gris granit         */
+    --color-ral-7030: #909088; /* Gris pierre ★       */
+    --color-ral-7031: #506070; /* Gris bleu           */
+    --color-ral-7032: #C0B898; /* Gris silex ★        */
+    --color-ral-7033: #788870; /* Gris ciment         */
+    --color-ral-7034: #908868; /* Gris jaune          */
+    --color-ral-7035: #C8C8C8; /* Gris clair ★        */
+    --color-ral-7036: #908888; /* Gris platine        */
+    --color-ral-7037: #787878; /* Gris poussière ★    */
+    --color-ral-7038: #B0B0A0; /* Gris agate          */
+    --color-ral-7039: #686058; /* Gris quartz         */
+    --color-ral-7040: #9098A8; /* Gris fenêtre ★      */
+    --color-ral-7042: #908888; /* Gris signalisation A*/
+    --color-ral-7043: #484840; /* Gris signalisation B*/
+    --color-ral-7044: #B8B0A0; /* Gris soie           */
+    --color-ral-7045: #909098; /* Gris télégris 1     */
+    --color-ral-7046: #808090; /* Gris télégris 2 ★   */
+    --color-ral-7047: #C8C8C0; /* Gris télégris 4     */
+    --color-ral-7048: #806858; /* Gris souris nacré   */
+
+    /* ── Bruns RAL 8xxx ─────────────────────────────────────── */
+    --color-ral-8000: #806028; /* Brun vert           */
+    --color-ral-8001: #985018; /* Brun ocre           */
+    --color-ral-8002: #784028; /* Brun signal         */
+    --color-ral-8003: #784028; /* Brun argile         */
+    --color-ral-8004: #8A3820; /* Brun cuivre         */
+    --color-ral-8007: #6A3820; /* Brun faon           */
+    --color-ral-8008: #805020; /* Brun olive          */
+    --color-ral-8009: #603828; /* Brun terre          */
+    --color-ral-8010: #583020; /* Brun noisette       */
+    --color-ral-8011: #502818; /* Brun noisette foncé */
+    --color-ral-8012: #602018; /* Brun rouge          */
+    --color-ral-8014: #381808; /* Brun sépia          */
+    --color-ral-8015: #582018; /* Brun marron         */
+    --color-ral-8016: #481808; /* Brun acajou         */
+    --color-ral-8017: #3A1808; /* Brun chocolat ★     */
+    --color-ral-8019: #302018; /* Gris brun           */
+    --color-ral-8022: #100808; /* Brun noir           */
+    --color-ral-8023: #A05020; /* Orangé brun         */
+    --color-ral-8024: #785038; /* Brun beige          */
+    --color-ral-8025: #786048; /* Brun pâle           */
+    --color-ral-8028: #503828; /* Brun terre          */
+
+    /* ── Blancs & Noirs RAL 9xxx ────────────────────────────── */
+    --color-ral-9001: #F8F0D8; /* Blanc crème ★       */
+    --color-ral-9002: #E8E0D0; /* Blanc gris          */
+    --color-ral-9003: #F8F8F8; /* Blanc signal ★      */
+    --color-ral-9004: #181818; /* Noir signal         */
+    --color-ral-9005: #080808; /* Noir foncé ★        */
+    --color-ral-9006: #A0A0A0; /* Blanc alu ★         */
+    --color-ral-9007: #888880; /* Gris alu            */
+    --color-ral-9010: #FFFFF0; /* Blanc pur ★         */
+    --color-ral-9011: #202028; /* Noir graphite       */
+    --color-ral-9016: #F8F8F0; /* Blanc signalisation ★*/
+    --color-ral-9017: #101018; /* Noir signalisation  */
+    --color-ral-9018: #C8D0C8; /* Blanc papyrus       */
+    --color-ral-9022: #888880; /* Gris clair nacré    */
+    --color-ral-9023: #787870; /* Gris foncé nacré    */
+}

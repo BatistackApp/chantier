@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import './ral_color.css';
 @import '../../vendor/livewire/flux/dist/flux.css';
 @import '../../vendor/guava/calendar/resources/css/theme.css';
 

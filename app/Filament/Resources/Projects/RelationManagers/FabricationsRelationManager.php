@@ -44,6 +44,11 @@ class FabricationsRelationManager extends RelationManager
                     ->alignEnd(),
 
                 TextColumn::make('color_code')
+                    ->badge()
+                    ->state(fn ($record) => "RAL {$record->color_code}")
+                    ->extraAttributes(fn (string $state, $record) => [
+                        'style' => "background-color: var(--color-ral-{$record->color_code}); color: white;",
+                    ])
                     ->label('Couleur'),
 
                 TextColumn::make('unit_cost')
