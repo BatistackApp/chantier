@@ -50,7 +50,9 @@ class SirenService
             $endpoint = $isSiret ? "/siret/{$identifier}" : "/siren/{$identifier}";
 
             try {
-                $response = Http::withToken($this->api_key)
+                $response = Http::withHeaders([
+                    'X-INSEE-Api-Key-Integration' => $this->api_key,
+                ])
                     ->get($this->base_url.$endpoint.'?champs=siret,siren');
 
                 return $response->successful();
@@ -78,7 +80,9 @@ class SirenService
             $endpoint = $isSiret ? "/siret/{$identifier}" : "/siren/{$identifier}";
 
             try {
-                $response = Http::withToken($this->api_key)
+                $response = Http::withHeaders([
+                    'X-INSEE-Api-Key-Integration' => $this->api_key,
+                ])
                     ->get($this->base_url.$endpoint);
 
                 if ($response->successful()) {
