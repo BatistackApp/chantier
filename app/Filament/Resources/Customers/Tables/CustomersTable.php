@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Customers\Tables;
 
 use App\Models\Customer;
 use Filament\Actions\Action;
+use Filament\Actions\ActionGroup;
 use Filament\Actions\CreateAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
@@ -66,13 +67,6 @@ class CustomersTable
                     ->searchable()
                     ->toggleable()
                     ->icon(Heroicon::Phone),
-
-                TextColumn::make('project_count')
-                    ->label('Chantiers')
-                    ->counts('projects')
-                    ->badge()
-                    ->color('success')
-                    ->sortable(),
             ])
             ->filters([
                 TernaryFilter::make('is_professional')
@@ -87,14 +81,17 @@ class CustomersTable
                     ->query(fn ($query) => $query->has('projects')),
             ])
             ->recordActions([
-                ViewAction::make(),
-                EditAction::make(),
-                Action::make('create_project')
-                    ->label('Nouveau chantiers')
-                    ->icon(Heroicon::PlusCircle)
-                    ->url(fn (Customer $record): string => route('filament.admin.resources.projects.create', [
-                        'customer_id' => $record->id,
-                    ])),
+                ActionGroup::make([
+                    ViewAction::make(),
+                    EditAction::make(),
+                    Action::make('create_project')
+                        ->label('Nouveau chantiers')
+                        ->color('info')
+                        ->icon(Heroicon::PlusCircle)
+                        ->url(fn (Customer $record): string => route('filament.admin.resources.projects.create', [
+                            'customer_id' => $record->id,
+                        ])),
+                ]),
             ]);
     }
 }

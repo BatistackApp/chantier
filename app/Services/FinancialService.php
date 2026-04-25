@@ -87,7 +87,7 @@ class FinancialService
             'quoted_amount' => $quotedAmount,
             'actual_debourse' => $actualDebourse,
             'margin_cents' => $margin,
-            'margin_percentage' => $quotedAmount > 0 ? round(($margin / $quotedAmount), 2) : 0,
+            'margin_percentage' => $quotedAmount > 0 ? round(($margin / $quotedAmount), 2) * 100 : 0,
             'is_within_estimate' => $actualDebourse <= $project->estimated_cost,
             'variance_from_estimate' => $project->estimated_cost - $actualDebourse,
         ];
